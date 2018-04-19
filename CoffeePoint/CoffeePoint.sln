@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoffeePoint.Domain.Entities
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoffeePoint.Database", "CoffeePoint.Database\CoffeePoint.Database.csproj", "{A70A1D27-400E-413E-B768-F2B4A241EC7D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoffeePoint.Web", "CoffeePoint.Web\CoffeePoint.Web.csproj", "{543C9ACE-CEEA-4A6B-A726-A05806355AEE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{A70A1D27-400E-413E-B768-F2B4A241EC7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A70A1D27-400E-413E-B768-F2B4A241EC7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A70A1D27-400E-413E-B768-F2B4A241EC7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{543C9ACE-CEEA-4A6B-A726-A05806355AEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{543C9ACE-CEEA-4A6B-A726-A05806355AEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{543C9ACE-CEEA-4A6B-A726-A05806355AEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{543C9ACE-CEEA-4A6B-A726-A05806355AEE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

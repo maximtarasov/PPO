@@ -5,4 +5,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="2.0.0" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CoffeePoint.Database\CoffeePoint.Database.csproj" />
+  </ItemGroup>
 </Project>

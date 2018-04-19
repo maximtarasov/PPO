@@ -1,19 +1,19 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CoffeePoint.Domain.Entities
 {
-    public class Discount
+    public class AccountType
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public Guid DiscountGuid { get; set; }
+        public AccountTypeOption TypeId { get; set; }
         
         [Required]
         [MaxLength(100)]
         public string Name { get; set; }
         
-        public float Percetage { get; set; }
+        public virtual ICollection<Account> Accounts { get; set; }
     }
 }

@@ -11,9 +11,17 @@ namespace CoffeePoint.Domain.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public Guid ShiftGuid { get; set; }
         
+        
+        [ForeignKey(nameof(OpenedByUser))]
+        public Guid OpenedByUserGuid { get; set; }
+        [ForeignKey(nameof(ClosedByUser))]
+        public Guid ClosedByUserGuid { get; set; }
+        
         public DateTimeOffset StartDate { get; set; }
         public DateTimeOffset? EndDate { get; set; }
 
+        public virtual User OpenedByUser { get; set; }
+        public virtual User ClosedByUser { get; set; }
         public virtual ICollection<Order> Orders { get; set; }
         
         

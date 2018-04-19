@@ -4,16 +4,21 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CoffeePoint.Domain.Entities
 {
-    public class Discount
+    public class Account
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public Guid DiscountGuid { get; set; }
+        public Guid AccountGuid { get; set; }
+        
+        [ForeignKey(nameof(Type))]
+        public AccountTypeOption TypeId { get; set; }
         
         [Required]
         [MaxLength(100)]
         public string Name { get; set; }
+        public decimal Balance { get; set; }
         
-        public float Percetage { get; set; }
+        public virtual AccountType Type { get; set; }
+        
     }
 }
