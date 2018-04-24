@@ -4,8 +4,8 @@
     Layout = "../Shared/_Layout.cshtml";
     var accountTypes = new[]
     {
-        new SelectListItem {Text = "Банковский счет", Value = AccountTypeOption.BankAccount.ToString()},
-        new SelectListItem {Text = "Наличный счет", Value = AccountTypeOption.Cash.ToString()}
+        new SelectListItem {Text = "Банковский счет", Value =  ((int)AccountTypeOption.BankAccount).ToString()},
+        new SelectListItem {Text = "Наличный счет", Value = ((int)AccountTypeOption.Cash).ToString()}
     };
 }
 @model CoffeePoint.Domain.Entities.Account

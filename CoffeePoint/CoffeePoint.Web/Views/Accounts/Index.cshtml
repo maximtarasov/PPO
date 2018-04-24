@@ -7,6 +7,7 @@
 
 
 <h1>Счета</h1>
+@Html.ActionLink("Создать","Account","Accounts",null,new{@class="btn btn-primary"})
 <br/><br/>
 
 <table class="table table-hover">
@@ -21,7 +22,7 @@
         <tr>
             <td>@Html.ActionLink(request.AccountGuid.ToString(),"Account","Accounts",new{request.AccountGuid} )</td>                
             <td>@request.Type.Name</td>        
-            <td>@request.Type.Name</td>
+            <td>@request.Name</td>
             <td>@request.Balance</td>
         </tr>
     }

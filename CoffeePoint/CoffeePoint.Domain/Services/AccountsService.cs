@@ -54,7 +54,7 @@ namespace CoffeePoint.Domain.Services
         
         public async Task<List<Account>> GetAccounts()
         {
-            return await _databaseContext.Accounts.ToListAsync();
+            return await _databaseContext.Accounts.Include(a=>a.Type).ToListAsync();
         }
         
         

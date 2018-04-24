@@ -95,7 +95,7 @@ namespace CoffeePoint.Web.Migrations
                 {
                     b.Property<Guid>("OrderGuid");
 
-                    b.Property<decimal>("Balance");
+                    b.Property<Guid>("AccountGuid");
 
                     b.Property<DateTimeOffset?>("ClosedDate");
 
@@ -105,7 +105,11 @@ namespace CoffeePoint.Web.Migrations
 
                     b.Property<Guid>("ShiftGuid");
 
+                    b.Property<decimal>("Total");
+
                     b.HasKey("OrderGuid");
+
+                    b.HasIndex("AccountGuid");
 
                     b.HasIndex("DiscountGuid");
 
@@ -198,6 +202,11 @@ namespace CoffeePoint.Web.Migrations
 
             modelBuilder.Entity("CoffeePoint.Domain.Entities.Order", b =>
                 {
+                    b.HasOne("CoffeePoint.Domain.Entities.Account", "Account")
+                        .WithMany("Orders")
+                        .HasForeignKey("AccountGuid")
+                        .OnDelete(DeleteBehavior.Cascade);
+
                     b.HasOne("CoffeePoint.Domain.Entities.Discount", "Discount")
                         .WithMany()
                         .HasForeignKey("DiscountGuid");

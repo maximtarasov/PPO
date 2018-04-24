@@ -1,6 +1,7 @@
 ﻿using System;
 using CoffeePoint.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Update.Internal;
 
 namespace CoffeePoint.Database
 {
@@ -17,5 +18,13 @@ namespace CoffeePoint.Database
 
         public DatabaseContext(DbContextOptions<DatabaseContext> options):base(options)
         { }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<User>().HasMany(a => a.ClosedShifts).WithOne(a => a.ClosedByUser);
+            modelBuilder.Entity<User>().HasMany(a => a.OpenedShifts).WithOne(a => a.OpenedByUser);
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -19,6 +20,7 @@ namespace CoffeePoint.Domain.Entities
         public decimal Balance { get; set; }
         
         public virtual AccountType Type { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
         
     }
 }
