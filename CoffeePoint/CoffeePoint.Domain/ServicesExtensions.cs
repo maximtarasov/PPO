@@ -12,6 +12,7 @@ namespace CoffeePoint.Domain
             serviceCollection.AddScoped<ShiftsService>();
             serviceCollection.AddScoped<ProductsService>();
             serviceCollection.AddScoped<AccountsService>();
+            serviceCollection.AddScoped<DiscountsService>();
             
             serviceCollection.AddScoped<DataInitializationService>();
             

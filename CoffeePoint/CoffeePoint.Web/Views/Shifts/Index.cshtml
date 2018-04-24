@@ -7,7 +7,7 @@
 
 
 <h1>Кассовые смены</h1>
-@if (!Model.Any(a => a.EndDate.HasValue))
+@if (Model.All(a => a.EndDate.HasValue))
 {
     @Html.ActionLink("Открыть смену","Open","Shifts",null,new{@class="btn btn-primary"})
 }
@@ -26,7 +26,7 @@
     @foreach (var request in Model)
     {
         <tr>
-            <td>@request.ShiftGuid )</td>         
+            <td>@request.ShiftGuid</td>         
             <td>@request.StartDate</td>
             <td>@request.OpenedByUser?.UserName</td>
             <td>@request.EndDate</td>

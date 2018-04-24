@@ -1,0 +1,32 @@
+﻿@using Microsoft.AspNetCore.Mvc.Rendering
+@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+@model CoffeePoint.Domain.Entities.Discount
+
+<h1>Продукт</h1>
+@using (Html.BeginForm(Model.DiscountGuid!=Guid.Empty?"Update":"Create", "Discounts", FormMethod.Post))
+{
+    @Html.ValidationSummary()
+    <div class="form-group-lg">
+        @Html.LabelFor(a => a.DiscountGuid)
+        @Html.ValueFor(a => a.DiscountGuid)
+        @Html.HiddenFor(a => a.DiscountGuid)
+    </div>
+    
+    <div class="form-group-lg">
+        @Html.LabelFor(a => a.Name)
+        @Html.TextBoxFor(a => a.Name, new {@class = "form-control"})
+    </div>
+    <div class="form-group-lg">
+        @Html.LabelFor(a => a.Percetage)
+        @Html.TextAreaFor(a => a.Percetage, new {@class = "form-control"})
+    </div>
+    
+    <br/>
+    <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+    if (Model.DiscountGuid != Guid.Empty)
+    {
+        @Html.ActionLink("Удалить","Delete",new{@Model.DiscountGuid},new{@class="btn btn-danger"})
+    }
+}

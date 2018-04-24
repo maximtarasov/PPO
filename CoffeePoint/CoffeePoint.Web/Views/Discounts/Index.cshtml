@@ -1,0 +1,28 @@
+﻿@using System.Collections.Generic
+@using Microsoft.AspNetCore.Mvc.Rendering
+@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+@model System.Collections.Generic.List<CoffeePoint.Domain.Entities.Discount>
+
+
+<h1>Скидки</h1>
+@Html.ActionLink("Создать","Discount","Discounts",null,new{@class="btn btn-primary"})
+<br/><br/>
+
+<table class="table table-hover">
+    <tr>
+        <td><b>Идентификатор скидки</b></td>
+        <td><b>Имя</b></td>
+        <td><b>Размер</b></td>
+    </tr>
+    @foreach (var request in Model)
+    {
+        <tr>
+            <td>@Html.ActionLink(request.DiscountGuid.ToString(),"Discount","Discounts",new{request.DiscountGuid} )</td>             
+            <td>@request.Name</td>
+            <td>@request.Percetage</td>
+        </tr>
+    }
+
+</table>
