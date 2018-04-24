@@ -19,6 +19,11 @@ namespace CoffeePoint.Domain.Services
             _sessionContext = sessionContext;
         }
 
+        public async Task<CashierShift> GetCurrent()
+        {
+            return await _databaseContext.CashierShifts.SingleOrDefaultAsync(a => a.EndDate.HasValue);
+        }
+        
         public async Task<Guid> OpenShift()
         {
             if (await _databaseContext.CashierShifts.AnyAsync(a => a.EndDate == null))

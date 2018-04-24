@@ -15,7 +15,7 @@ namespace CoffeePoint.Domain.Entities
         public Guid ShiftGuid { get; set; }
         
         [ForeignKey(nameof(Account))]
-        public Guid AccountGuid { get; set; }
+        public Guid? AccountGuid { get; set; }
         [ForeignKey(nameof(Discount))]
         public Guid? DiscountGuid { get; set; }
         
@@ -29,7 +29,18 @@ namespace CoffeePoint.Domain.Entities
         public virtual CashierShift CashierShift { get; set; }
         public virtual Discount Discount { get; set; }
         public virtual ICollection<OrderItem> OrderItems { get; set; }
-        
-        
+
+        public Order()
+        {
+            
+        }
+
+        public Order(Guid shiftGuid)
+        {
+            OrderGuid = Guid.NewGuid();
+            ShiftGuid = shiftGuid;
+            OpenDate = DateTimeOffset.Now;
+            Total = 0;
+        }
     }
 }

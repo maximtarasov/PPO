@@ -1,0 +1,36 @@
+﻿@using Microsoft.AspNetCore.Mvc.Rendering
+@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+@model CoffeePoint.Domain.Entities.Order
+
+<h1>Продукт</h1>
+@using (Html.BeginForm(Model.OrderGuid!=Guid.Empty?"Update":"Create", "Orders", FormMethod.Post))
+{
+    @Html.ValidationSummary()
+    <div class="form-group-lg">
+        @Html.LabelFor(a => a.Щ)
+        @Html.ValueFor(a => a.ProductGuid)
+        @Html.HiddenFor(a => a.ProductGuid)
+    </div>
+    
+    <div class="form-group-lg">
+        @Html.LabelFor(a => a.Name)
+        @Html.TextBoxFor(a => a.Name, new {@class = "form-control"})
+    </div>
+    <div class="form-group-lg">
+        @Html.LabelFor(a => a.Descrdiption)
+        @Html.TextAreaFor(a => a.Description, new {@class = "form-control"})
+    </div>
+    
+    <div class="form-group-lg">
+        @Html.LabelFor(a => a.Price)
+        @Html.TextBoxFor(a => a.Price, new {@class = "form-control"})
+    </div>
+    <br/>
+    <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+    if (Model.ProductGuid != Guid.Empty)
+    {
+        @Html.ActionLink("Удалить","Delete",new{@Model.ProductGuid},new{@class="btn btn-danger"})
+    }
+}
