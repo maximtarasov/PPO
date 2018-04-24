@@ -1,0 +1,29 @@
+﻿@using System.Collections.Generic
+@using Microsoft.AspNetCore.Mvc.Rendering
+@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+@model System.Collections.Generic.List<CoffeePoint.Domain.Entities.Account>
+
+
+<h1>Счета</h1>
+<br/><br/>
+
+<table class="table table-hover">
+    <tr>
+        <td><b>Идентификатор счета</b></td>
+        <td><b>Тип счета</b></td>
+        <td><b>Имя</b></td>
+        <td><b>Баланс</b></td>
+    </tr>
+    @foreach (var request in Model)
+    {
+        <tr>
+            <td>@Html.ActionLink(request.AccountGuid.ToString(),"Account","Accounts",new{request.AccountGuid} )</td>                
+            <td>@request.Type.Name</td>        
+            <td>@request.Type.Name</td>
+            <td>@request.Balance</td>
+        </tr>
+    }
+
+</table>

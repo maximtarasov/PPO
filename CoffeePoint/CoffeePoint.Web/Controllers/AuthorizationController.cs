@@ -34,7 +34,7 @@ namespace CoffeePoint.Web.Controllers
             await _signInManager.SignInAsync(user,true);
             
             
-            return RedirectToAction("Index","Profiles");
+            return RedirectToAction("Index","Products");
         }
         
         [Authorize]

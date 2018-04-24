@@ -20,6 +20,8 @@ namespace CoffeePoint.Domain.Entities
         public DateTimeOffset OpenDate { get; set; }  
         public DateTimeOffset? ClosedDate { get; set; }
         
+        public decimal Balance { get; set; }
+        
         public virtual CashierShift CashierShift { get; set; }
         public virtual Discount Discount { get; set; }
         public virtual ICollection<OrderItem> OrderItems { get; set; }

@@ -15,5 +15,14 @@ namespace CoffeePoint.Domain.Entities
         public string Name { get; set; }
         
         public virtual ICollection<Account> Accounts { get; set; }
+
+        public AccountType()
+        { }
+
+        public AccountType(AccountTypeOption typeId, string name)
+        {
+            TypeId = typeId;
+            Name = name;
+        }
     }
 }

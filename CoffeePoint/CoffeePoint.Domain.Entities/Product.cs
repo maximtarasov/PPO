@@ -22,5 +22,7 @@ namespace CoffeePoint.Domain.Entities
         
         
         public virtual ICollection<OrderItem> OrderItems { get; set; }
+        
+        
     }
 }

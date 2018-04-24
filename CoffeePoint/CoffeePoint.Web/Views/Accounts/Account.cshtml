@@ -1,0 +1,38 @@
+﻿@using CoffeePoint.Domain.Entities
+@using Microsoft.AspNetCore.Mvc.Rendering
+@{
+    Layout = "../Shared/_Layout.cshtml";
+    var accountTypes = new[]
+    {
+        new SelectListItem {Text = "Банковский счет", Value = AccountTypeOption.BankAccount.ToString()},
+        new SelectListItem {Text = "Наличный счет", Value = AccountTypeOption.Cash.ToString()}
+    };
+}
+@model CoffeePoint.Domain.Entities.Account
+
+<h1>Счет</h1>
+@using (Html.BeginForm(Model.AccountGuid!=Guid.Empty?"Update":"Create", "Accounts", FormMethod.Post))
+{
+    @Html.ValidationSummary()
+    <div class="form-group-lg">
+        @Html.LabelFor(a => a.AccountGuid)
+        @Html.ValueFor(a => a.AccountGuid)
+        @Html.HiddenFor(a => a.AccountGuid)
+    </div>
+    
+    <div class="form-group-lg">
+        @Html.LabelFor(a => a.Name)
+        @Html.TextBoxFor(a => a.Name, new {@class = "form-control"})
+    </div>
+    <div class="form-group-lg">
+        @Html.LabelFor(a => a.TypeId)
+        @Html.DropDownListFor(a => a.TypeId, accountTypes,new {@class = "form-control"})
+    </div>
+    
+    <br/>
+    <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+    if (Model.AccountGuid != Guid.Empty)
+    {
+        @Html.ActionLink("Удалить","Delete",new{@Model.AccountGuid},new{@class="btn btn-danger"})
+    }
+}

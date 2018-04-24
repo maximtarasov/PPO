@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Astral.Extensions.Hashing.Abstractions;
 using CoffeePoint.Database;
 using CoffeePoint.Domain.Entities;
 using Microsoft.EntityFrameworkCore;

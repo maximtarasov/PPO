@@ -1,0 +1,30 @@
+﻿@using System.Collections.Generic
+@using Microsoft.AspNetCore.Mvc.Rendering
+@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+@model System.Collections.Generic.List<CoffeePoint.Domain.Entities.Product>
+
+
+<h1>Продукты</h1>
+@Html.ActionLink("Создать","Product","Products",null,new{@class="btn btn-primary"})
+<br/><br/>
+
+<table class="table table-hover">
+    <tr>
+        <td><b>Идентификатор продукта</b></td>
+        <td><b>Имя</b></td>
+        <td><b>Описание</b></td>
+        <td><b>Цена</b></td>
+    </tr>
+    @foreach (var request in Model)
+    {
+        <tr>
+            <td>@Html.ActionLink(request.ProductGuid.ToString(),"Product","Products",new{request.ProductGuid} )</td>         
+            <td>@request.Name</td>
+            <td>@request.Description</td>
+            <td>@request.Price</td>
+        </tr>
+    }
+
+</table>

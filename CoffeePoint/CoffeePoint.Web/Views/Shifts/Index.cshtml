@@ -1,0 +1,42 @@
+﻿@using System.Collections.Generic
+@using Microsoft.AspNetCore.Mvc.Rendering
+@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+@model System.Collections.Generic.List<CoffeePoint.Domain.Entities.CashierShift>
+
+
+<h1>Кассовые смены</h1>
+@if (!Model.Any(a => a.EndDate.HasValue))
+{
+    @Html.ActionLink("Открыть смену","Open","Shifts",null,new{@class="btn btn-primary"})
+}
+<br/><br/>
+
+<table class="table table-hover">
+    <tr>
+        <td><b>Идентификатор смены</b></td>
+        <td><b>Дата открытия</b></td>
+        <td><b>Открыто</b></td>
+        <td><b>Дата закрытия</b></td>
+        <td><b>Закрыто</b></td>
+        <td><b>Баланс</b></td>
+        <td><b>Действия</b></td>
+    </tr>
+    @foreach (var request in Model)
+    {
+        <tr>
+            <td>@request.ShiftGuid )</td>         
+            <td>@request.StartDate</td>
+            <td>@request.OpenedByUser?.UserName</td>
+            <td>@request.EndDate</td>
+            <td>@request.ClosedByUser?.UserName</td>
+            <td>@request.Balance</td>
+            <td>@if (!request.EndDate.HasValue)
+                {
+                    @Html.ActionLink("Закрыть смену","Close","Shifts",new{request.ShiftGuid} )
+                }</td>
+        </tr>
+    }
+
+</table>

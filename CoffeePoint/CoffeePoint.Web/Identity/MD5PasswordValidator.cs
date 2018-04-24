@@ -1,10 +1,9 @@
 ﻿using System.Threading.Tasks;
 using Astral.Extensions.Hashing.Abstractions;
 using CoffeePoint.Domain.Entities;
-using MeetMe.Database.Entities;
 using Microsoft.AspNetCore.Identity;
 
-namespace KalugaGov.Identity
+namespace CoffeePoint.Web.Identity
 {
     /// <summary>
     /// Валидатор паролей на MD5

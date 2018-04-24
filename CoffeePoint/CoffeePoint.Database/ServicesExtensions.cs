@@ -7,7 +7,7 @@ namespace CoffeePoint.Database
     {
         public static IServiceCollection AddDatabase(this IServiceCollection serviceCollection, string connectionString)
         {
-            serviceCollection.AddDbContextPool<DatabaseContext>(builder => { builder.UseNpgsql(connectionString); });
+            serviceCollection.AddDbContext<DatabaseContext>(builder => { builder.UseNpgsql(connectionString, c => c.MigrationsAssembly("CoffeePoint.Web")); });
 
             return serviceCollection;
         }

@@ -38,6 +38,15 @@ namespace CoffeePoint.Domain.Entities
         {
             UserGuid = Guid.NewGuid();
         }
+
+        public User(string userName, string surname, string name, string passwordHash)
+        {
+            UserGuid = Guid.NewGuid();
+            UserName = userName;
+            Surname = surname;
+            Name = name;
+            PasswordHash = passwordHash;
+        }
         
     }
 }

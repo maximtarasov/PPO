@@ -2,7 +2,6 @@
 using System.Threading;
 using System.Threading.Tasks;
 using CoffeePoint.Database;
-using KalugaGov.Identity;
 using Microsoft.AspNetCore.Identity;
 
 namespace CoffeePoint.Web.Identity

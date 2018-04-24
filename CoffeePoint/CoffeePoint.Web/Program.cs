@@ -5,6 +5,7 @@ namespace CoffeePoint.Web
 {
     public class Program
     {
+        
         public static void Main(string[] args)
         {
             BuildWebHost(args).Run();
@@ -16,6 +17,5 @@ namespace CoffeePoint.Web
                 .UseDefaultServiceProvider(options => options.ValidateScopes = false)
                 .UseStartup<Startup>()
                 .Build();
-        
     }
 }

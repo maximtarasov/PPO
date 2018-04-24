@@ -1,7 +1,8 @@
-﻿using CoffeePoint.Domain.Entities;
+﻿using Astral.Extensions.Hashing.Abstractions;
+using CoffeePoint.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 
-namespace KalugaGov.Identity
+namespace CoffeePoint.Web.Identity
 {
     /// <summary>
     /// MD5 Хешер паролей
