@@ -1,4 +1,6 @@
 ﻿using System.Threading.Tasks;
+using CoffeePoint.Domain.Entities;
+using CoffeePoint.Domain.Services;
 using CoffeePoint.Web.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -43,13 +45,5 @@ namespace CoffeePoint.Web.Controllers
             
             return RedirectToAction("Index","Authorization");
         }
-    }
-
-    public class AuthorizationController : Controller
-    {
-        public IActionResult Index()
-        {
-            return View();
-        } 
     }
 }

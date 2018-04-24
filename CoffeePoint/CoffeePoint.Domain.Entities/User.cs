@@ -26,7 +26,7 @@ namespace CoffeePoint.Domain.Entities
         
         [Required]
         [MaxLength(100)]
-        public string Password { get; set; }
+        public string PasswordHash { get; set; }
 
         [InverseProperty(nameof(CashierShift.OpenedByUser))]
         public virtual ICollection<CashierShift> OpenedShifts { get; set; }
